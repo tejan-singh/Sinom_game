@@ -23,6 +23,4 @@ function makeSound(){
 
   $(".btn").on("click", function(){userChosenColour = this.id; console.log(userChosenColour); userClickedPattern.push(userChosenColour); console.log(userClickedPattern)})
 
-
-
   //userChosenColour = this.id; userClickedPattern.push(userChosenColour)
