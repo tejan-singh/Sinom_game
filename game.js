@@ -23,11 +23,20 @@ function nextSequence(){
   
   function playSound(){
     $(".btn").on("click", function(){
-      userChosenColour = this.id; 
+      userChosenColour = this.id 
       var sound = new Audio("sounds/" + userChosenColour + ".mp3")
       sound.play()
       $("#" + userChosenColour).fadeOut(100).fadeIn(100)
     }
     )
 
+  }
+
+  function animatePress(){
+    $(".btn").on("click", function(){
+      pressed = this.id
+      $("#" + pressed).addClass("pressed")
+      //$("#" + pressed).removeClass("pressed")
+      
+    })
   }
