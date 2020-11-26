@@ -11,6 +11,9 @@ function nextSequence(){
   gamePattern.push(randomChosenColour)
   console.log(gamePattern)
 
+  var sound = new Audio("sounds/" + randomChosenColour + ".mp3")
+  sound.play()
+
   $("#" + randomChosenColour).fadeOut(100).fadeIn(100)
 
 }
