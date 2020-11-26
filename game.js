@@ -35,7 +35,14 @@ function nextSequence(){
   function animatePress(){
     $(".btn").on("click", function(){
       pressed = this.id
+      
       $("#" + pressed).addClass("pressed")
+      
+      setTimeout(function() {
+      $("#" + pressed).removeClass("pressed")
+      }, 100);
+
+      //$("#" + pressed).addClass("pressed")
       //$("#" + pressed).removeClass("pressed")
       
     })
