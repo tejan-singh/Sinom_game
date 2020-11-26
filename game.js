@@ -15,7 +15,7 @@ function nextSequence(){
 
 }
 
-  $(".btn").on("click", function(){userChosenColour = this.id; console.log(userChosenColour); userClickedPattern.push(userChosenColour); console.log(userClickedPattern)})
+  //$(".btn").on("click", function(){userChosenColour = this.id; console.log(userChosenColour); userClickedPattern.push(userChosenColour); console.log(userClickedPattern)})
 
   
   function playSound(){
@@ -23,6 +23,7 @@ function nextSequence(){
       userChosenColour = this.id; 
       var sound = new Audio("sounds/" + userChosenColour + ".mp3")
       sound.play()
+      $("#" + userChosenColour).fadeOut(100).fadeIn(100)
     }
     )
 
