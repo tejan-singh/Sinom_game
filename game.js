@@ -3,7 +3,7 @@ gamePattern = []
 userClickedPattern = []
 
 game_start = 0
-
+level = 0
 
 $(document).keypress(function(press){
   if(game_start === 0){
@@ -14,7 +14,8 @@ $(document).keypress(function(press){
 })
 
 function nextSequence(){
-
+  level = level + 1
+  $("h1").html("Level " + level)
   randomNumber = Math.random()
   randomNumber = Math.round(randomNumber * 3)
   console.log(randomNumber)
