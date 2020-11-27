@@ -2,7 +2,19 @@ buttonColours = ["red", "blue", "green", "yellow"]
 gamePattern = []
 userClickedPattern = []
 
+game_start = 0
+
+
+$(document).keypress(function(press){
+  if(game_start === 0){
+    $("h1").html("Level 0")
+    nextSequence()
+    game_start = 1
+  }
+})
+
 function nextSequence(){
+
   randomNumber = Math.random()
   randomNumber = Math.round(randomNumber * 3)
   console.log(randomNumber)
@@ -41,9 +53,7 @@ function nextSequence(){
       setTimeout(function() {
       $("#" + pressed).removeClass("pressed")
       }, 100);
-
-      //$("#" + pressed).addClass("pressed")
-      //$("#" + pressed).removeClass("pressed")
       
     })
   }
+
