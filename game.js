@@ -49,7 +49,7 @@ function animatePress() {
 
   })
 }
-
+//checks for only last index element of both arrays
 function checkAnswer(currentLevel){
   if(gamePattern[currentLevel] === userClickedPattern[currentLevel]){
     console.log("Match")
