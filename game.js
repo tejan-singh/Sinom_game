@@ -62,7 +62,18 @@ function checkAnswer(currentLevel){
   }
 
   else{
-    console.log("wrong")
+    //play wrong sound
+    var sound = new Audio("sounds/wrong.mp3")
+    sound.play()
+
+    //alert user by changing CSS
+    $("h1").html("Game Over, Press Any Key to Restart")
+    $("body").addClass("game-over")
+
+    setTimeout(function () {
+      $("body").removeClass("game-over")
+    }, 200);
+
   }
 }
 
