@@ -8,7 +8,7 @@ level = 0
 function nextSequence() {
   //to empty the array after checkAnswer() is called
   userClickedPattern = []
-  
+
   playSound()
   animatePress()
 
@@ -49,19 +49,17 @@ function animatePress() {
 
   })
 }
-//checks for only last index element of both arrays
-function checkAnswer(currentLevel){
-  if(gamePattern[currentLevel] === userClickedPattern[currentLevel]){
+//checks the element at index of userClickedPattern.length - 1
+function checkAnswer(currentLevel) {
+  if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
     console.log("Match")
 
-    if(gamePattern.length === userClickedPattern.length){
+    if (gamePattern.length === userClickedPattern.length) {
       setTimeout(function () {
         nextSequence()
       }, 1000);
     }
-  }
-
-  else{
+  } else {
     //play wrong sound
     var sound = new Audio("sounds/wrong.mp3")
     sound.play()
@@ -74,23 +72,32 @@ function checkAnswer(currentLevel){
       $("body").removeClass("game-over")
     }, 200);
 
+    $(document).keypress(function(press){
+      startOver()
+    })
+    }
   }
-}
 
 
-$(document).keypress(function (press) {
-  if (game_start === 0) {
-    $("h1").html("Level 0")
+  function startOver() {
+    gamePattern = []
+    level = 0
     nextSequence()
-    game_start = 1
   }
-})
 
-$(".btn").on("click", function () {
-  userChosenColour = this.id;
-  userClickedPattern.push(userChosenColour);
-  console.log(userClickedPattern)
+  $(document).keypress(function (press) {
+    if (game_start === 0) {
+      $("h1").html("Level 0")
+      nextSequence()
+      game_start = 1
+    }
+  })
 
-  checkAnswer(userClickedPattern.length - 1)
-  
-})
+  $(".btn").on("click", function () {
+    userChosenColour = this.id;
+    userClickedPattern.push(userChosenColour);
+    console.log(userClickedPattern)
+
+    checkAnswer(userClickedPattern.length - 1)
+
+  })
